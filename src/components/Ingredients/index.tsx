@@ -10,14 +10,12 @@ export function Ingredients() {
             contentContainerStyle={styles.container}
             showsHorizontalScrollIndicator={false}
         >
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
+
+            {
+                Array.from({length:100}).map((item, index) => (
+                    <Ingredient key={index} />
+                ))
+            }      
 
             
         </ScrollView>
