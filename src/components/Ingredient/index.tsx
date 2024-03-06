@@ -13,7 +13,7 @@ export function Ingredient({name,
     ...rest
   }: IngredientsProps & PressableProps) {
     return(
-        <Pressable style={styles.container} {...rest}>
+        <Pressable style={[styles.container, selected && styles.selected]} {...rest}>
             <Image style={styles.image} source={require("@/assets/tomato.png")}/>
             <Text style={styles.title}>Tomate</Text>
         </Pressable>

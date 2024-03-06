@@ -25,7 +25,12 @@ export function Ingredients() {
 
             {
                 Array.from({length:100}).map((item, index) => (
-                    <Ingredient key={index} name="Tomate" image="" selected onPress={() => handleToggleSelected(String(index))} />
+                    <Ingredient
+                        key={index} 
+                        name="Tomate" image="" 
+                        selected={selected.includes(String(index))} 
+                        onPress={() => handleToggleSelected(String(index))} 
+                     />
                 ))
             }      
 
