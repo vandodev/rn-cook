@@ -1,4 +1,4 @@
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, Alert } from "react-native";
 import { styles } from "./styles";
 import { useState } from "react";
 
@@ -16,6 +16,13 @@ export default function Home() {
 
     setSelected((state) => [...state, value])
     console.log(selected)
+  }
+
+  function handleClearSelected() {
+    Alert.alert("Limpar", "Deseja limpar tudo?", [
+      { text: "Não", style: "cancel" },
+      { text: "Sim", onPress: () => setSelected([]) },
+    ])
   }
 
     return(
@@ -48,8 +55,12 @@ export default function Home() {
                       />
                   ))
               }   
-        </ScrollView>     
-        <Selected quantity={selected.length} />   
+        </ScrollView>   
+
+        <Selected 
+          quantity={selected.length}         
+          onClear={handleClearSelected}
+        />   
 
       </View>
     )

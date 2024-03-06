@@ -7,10 +7,11 @@ import { styles } from "./styles"
 
 
 type Props = {
-  quantity: number
+  quantity: number  
+  onClear: () => void
 }
 
-export function Selected({ quantity}: Props) {
+export function Selected({ quantity, onClear}: Props) {
   return (
     <Animated.View
       entering={SlideInDown.duration(500)}
@@ -23,7 +24,8 @@ export function Selected({ quantity}: Props) {
         <MaterialIcons
           name="close"
           size={24}
-          color={theme.colors.gray_400}         
+          color={theme.colors.gray_400}
+          onPress={onClear}         
         />
       </View>
 
