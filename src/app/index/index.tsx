@@ -3,6 +3,7 @@ import { styles } from "./styles";
 import { useState } from "react";
 
 import { Ingredient } from "../../components/Ingredient"
+import { Selected } from "@/components/Selected";
 
 export default function Home() {
 0
@@ -47,7 +48,8 @@ export default function Home() {
                       />
                   ))
               }   
-        </ScrollView>        
+        </ScrollView>     
+        <Selected quantity={selected.length} />   
 
       </View>
     )
