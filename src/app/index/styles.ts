@@ -20,6 +20,12 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.family.regular,
         color: theme.colors.gray_400,
         marginTop: 12,
-        marginBottom: 38,
       },
+      ingredient:{
+        flexWrap:"wrap",
+        flexDirection:"row",
+        gap:5,
+        paddingBottom:30,
+        paddingTop:10
+      }
 })
