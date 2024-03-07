@@ -56,11 +56,13 @@ export default function Home() {
                   ))
               }   
         </ScrollView>   
-
-        <Selected 
-          quantity={selected.length}         
-          onClear={handleClearSelected}
-        />   
+        
+        {selected.length > 0 && (
+          <Selected 
+            quantity={selected.length}         
+            onClear={handleClearSelected}
+          />
+        )}   
 
       </View>
     )

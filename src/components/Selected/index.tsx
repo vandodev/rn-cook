@@ -4,6 +4,7 @@ import Animated, { BounceOutDown, SlideInDown } from "react-native-reanimated"
 
 import { theme } from "@/theme"
 import { styles } from "./styles"
+import { Button } from "../Button"
 
 
 type Props = {
@@ -28,6 +29,10 @@ export function Selected({ quantity, onClear}: Props) {
           onPress={onClear}         
         />
       </View>
+
+      <Button 
+         title="Encontrar"      
+       />
 
     </Animated.View>
   )
