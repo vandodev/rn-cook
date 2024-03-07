@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
 import { Text, View, ScrollView, Alert } from "react-native";
 import { styles } from "./styles";
-import { useState } from "react";
 import { router } from "expo-router"
 import { Ingredient } from "../../components/Ingredient"
 import { Selected } from "@/components/Selected";
+import { services } from "@/services"
+
 
 export default function Home() {
 0
@@ -28,6 +30,12 @@ export default function Home() {
   function handleSearch() {
     router.navigate("/Recipes/")
   }
+
+  useEffect(() => {
+    services.ingredientes
+      .findAll().then(console.log)
+  }, [])
+
 
     return(
       <View style={styles.container}>
