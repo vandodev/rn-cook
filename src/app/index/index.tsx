@@ -1,7 +1,7 @@
 import { Text, View, ScrollView, Alert } from "react-native";
 import { styles } from "./styles";
 import { useState } from "react";
-
+import { router } from "expo-router"
 import { Ingredient } from "../../components/Ingredient"
 import { Selected } from "@/components/Selected";
 
@@ -23,6 +23,10 @@ export default function Home() {
       { text: "Não", style: "cancel" },
       { text: "Sim", onPress: () => setSelected([]) },
     ])
+  }
+
+  function handleSearch() {
+    router.navigate("/Recipes/")
   }
 
     return(
@@ -61,6 +65,7 @@ export default function Home() {
           <Selected 
             quantity={selected.length}         
             onClear={handleClearSelected}
+            onSearch={handleSearch}
           />
         )}   
 

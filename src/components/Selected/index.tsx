@@ -10,9 +10,10 @@ import { Button } from "../Button"
 type Props = {
   quantity: number  
   onClear: () => void
+  onSearch: () => void
 }
 
-export function Selected({ quantity, onClear}: Props) {
+export function Selected({ quantity, onClear, onSearch}: Props) {
   return (
     <Animated.View
       entering={SlideInDown.duration(500)}
@@ -31,7 +32,8 @@ export function Selected({ quantity, onClear}: Props) {
       </View>
 
       <Button 
-         title="Encontrar"      
+         title="Encontrar"  
+         onPress={onSearch}     
        />
 
     </Animated.View>
