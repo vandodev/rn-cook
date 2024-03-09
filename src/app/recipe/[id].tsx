@@ -8,6 +8,8 @@ import { services } from "@/services"
 import { styles } from "./styles"
 import { Loading } from "@/components/Loading"
 import { Ingredients } from "@/components/Ingredients"
+import { Step } from "@/components/Step"
+
 
 export default function Recipes() {
   const [isLoading, setIsLoading] = useState(true)
@@ -61,7 +63,19 @@ export default function Recipes() {
         </View>
 
         <Ingredients ingredients={ingredients} />
-        
+
+        <View style={styles.content}>
+          <Text style={styles.preparation}>Modo de preparado</Text>
+
+          <FlatList
+            data={preparations}
+            renderItem={({ item }) => (
+              <Step step={item.step} description={item.description} />
+            )}
+            contentContainerStyle={{ gap: 16 }}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
       </View>
     </View>
   )
