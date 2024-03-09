@@ -18,7 +18,7 @@ export default function Home() {
     }
 
     setSelected((state) => [...state, value])
-    console.log(selected)
+    // console.log(selected)
   }
 
   function handleClearSelected() {
@@ -29,7 +29,7 @@ export default function Home() {
   }
 
   function handleSearch() {
-    router.navigate("/Recipes/")
+    router.navigate("/Recipes/" + selected)
   }
 
   useEffect(() => {

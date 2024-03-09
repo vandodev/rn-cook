@@ -1,6 +1,16 @@
 import { supabase } from "./supabase"
 
-export async function findAll() {
+async function findByIds(ids: string[]) {
+  const { data } = await supabase
+    .from("ingredients")
+    .select()
+    .in("id", ids)
+    .order("name")
+    .returns<IngredientResponse[]>()
+    return data ?? []
+}
+
+async function findAll() {
   const { data } = await supabase
     .from("ingredients")
     .select()
@@ -9,3 +19,5 @@ export async function findAll() {
 
   return data ?? []
 }
+
+export { findAll, findByIds}
