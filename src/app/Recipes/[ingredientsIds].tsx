@@ -60,6 +60,7 @@ import { Ingredients } from "@/components/Ingredients"
               renderItem={({ item }) => (
                 <Recipe
                   recipe={item}
+                  onPress={() => router.navigate("/recipe/" + item.id)}
                 />
               )}
               style={styles.recipes}
