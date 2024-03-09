@@ -7,10 +7,12 @@ import { services } from "@/services"
 
 import { Redirect, router, useLocalSearchParams } from "expo-router"
 import { Recipe } from "@/components/Recipe"
+import { Loading } from "@/components/Loading"
 import { Ingredients } from "@/components/Ingredients"
 
   
   export default function Recipes() {
+    const [isLoading, setIsLoading] = useState(true)
     const [ingredients, setIngredients] = useState<IngredientResponse[]>([])
     const params = useLocalSearchParams<{ ingredientsIds: string }>();
         // console.log(params)
@@ -20,11 +22,17 @@ import { Ingredients } from "@/components/Ingredients"
 
     useEffect(() => {
       services.ingredientes
-        .findByIds(ingredientsIds).then(setIngredients)   
+        .findByIds(ingredientsIds).then(setIngredients)
+        .finally(() => setIsLoading(false))
 
     }, [])
 
-  return (
+    if (isLoading) {
+      return <Loading />
+    }
+  
+
+    return (
     <View style={styles.container}>
         <View style={styles.header}>
           <MaterialIcons
