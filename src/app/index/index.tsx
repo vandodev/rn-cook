@@ -49,26 +49,20 @@ export default function Home() {
              Descubra receitas baseadas nos produtos que você escolheu.
         </Text>
 
-        <ScrollView 
-              // horizontalz
-              style={styles.container}
-              contentContainerStyle={styles.ingredient}
-              showsHorizontalScrollIndicator={false}
-             >
-
-          
-              {
-                 ingredients.map((item) => (
-                      <Ingredient
-                          key={item.id} 
-                          name={item.name} 
-                          image={`${services.storage.imagePath}/${item.image}`}
-                          selected={selected.includes(String(item.id))} 
-                          onPress={() => handleToggleSelected(String(item.id))} 
-                      />
-                  ))
-              }   
-        </ScrollView>   
+        <ScrollView
+        contentContainerStyle={styles.ingredient}
+        showsVerticalScrollIndicator={false}
+      >
+        {ingredients.map((ingredient) => (
+          <Ingredient
+            key={ingredient.id}
+            name={ingredient.name}
+            image={`${services.storage.imagePath}/${ingredient.image}`}
+            selected={selected.includes(ingredient.id)}
+            onPress={() => handleToggleSelected(ingredient.id)}
+          />
+        ))}
+      </ScrollView>
         
         {selected.length > 0 && (
           <Selected 
